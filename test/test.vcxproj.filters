@@ -13,10 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="sv">
+      <UniqueIdentifier>{9f2d81ab-d708-4771-af02-fa4e5fc93ff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sv\base">
+      <UniqueIdentifier>{08e2019e-addc-4465-9094-1f0bc53b8d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sv\test">
+      <UniqueIdentifier>{a0cc66d0-1d4e-4aff-b5b0-565fde7ea7d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sv\error.hpp">
+      <Filter>sv</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\base\operation.hpp">
+      <Filter>sv\base</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\base\id_holder.hpp">
+      <Filter>sv\base</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\test\return_value_test.hpp">
+      <Filter>sv\test</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

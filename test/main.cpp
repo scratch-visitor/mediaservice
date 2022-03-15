@@ -6,32 +6,17 @@
 #include <functional>
 #include <unordered_map>
 
-namespace err
-{
-enum : int
-{
-  none = 0,
-  not_implemented_yet,
-  abnormal_argument,
-};
-}
+#include "sv/error.hpp"
+#include "sv/base/operation.hpp"
 
-template<class T>
-struct operation_base
+namespace sv
 {
-  using ptr = std::shared_ptr<operation_base<T>>;
-  using return_type = T;
 
-  virtual return_type execute() = 0;
-  virtual std::string name() const = 0;
-};
-
-using basic_operation = operation_base<int>;
 
 template<class T>
 struct processor
 {
-  using operation = operation_base<T>;
+  using operation = base::operation_base<T>;
 
   virtual void start() = 0;
   virtual void stop() = 0;
@@ -39,7 +24,7 @@ struct processor
   virtual void post(typename operation::ptr _obj) = 0;
 };
 
-template<class R, class T = operation_base<R>, class Cont = std::deque<std::shared_ptr<T>>>
+template<class R, class T = base::operation_base<R>, class Cont = std::deque<std::shared_ptr<T>>>
 struct basic_processor : processor<R>
 {
   using operation_type = T;
@@ -70,12 +55,8 @@ private:
   container m_depot;
 };
 
-struct demuxer : basic_operation
+struct demuxer : base::basic_operation
 {
-  virtual int execute() override
-  {
-    return err::not_implemented_yet;
-  }
   virtual std::string name() const override
   {
     return std::string("demuxer");
@@ -84,6 +65,11 @@ struct demuxer : basic_operation
   {
     static int s_id = 0;
     return s_id++;
+  }
+protected:
+  virtual int do_execute() override
+  {
+    return err::not_implemented_yet;
   }
 };
 
@@ -176,9 +162,10 @@ struct webrtc : demuxer
 };
 DEFINITION_REG(webrtc);
 
-struct decoder : basic_operation
+struct decoder : base::basic_operation
 {
-  virtual int execute() override
+protected:
+  virtual int do_execute() override
   {
     return err::not_implemented_yet;
   }
@@ -188,15 +175,21 @@ struct h264 : decoder {};
 struct h265 : decoder {};
 struct av1 : decoder {};
 
+} // namespace sv
+
+#include "sv/test/return_value_test.hpp"
+
 int main()
 {
-  demuxer::ptr demuxer = nullptr;
-  demuxer = demuxer_maker::get().create(rtsp::id);
-  std::cout << "demuxer: " << demuxer->name() << std::endl;
-  demuxer = demuxer_maker::get().create(hls::id);
-  std::cout << "demuxer: " << demuxer->name() << std::endl;
-  demuxer = demuxer_maker::get().create(webrtc::id);
-  std::cout << "demuxer: " << demuxer->name() << std::endl;
+  //sv::demuxer::ptr demuxer = nullptr;
+  //demuxer = sv::demuxer_maker::get().create(sv::rtsp::id);
+  //std::cout << "demuxer: " << demuxer->name() << std::endl;
+  //demuxer = sv::demuxer_maker::get().create(sv::hls::id);
+  //std::cout << "demuxer: " << demuxer->name() << std::endl;
+  //demuxer = sv::demuxer_maker::get().create(sv::webrtc::id);
+  //std::cout << "demuxer: " << demuxer->name() << std::endl;
+
+  sv::test::test_return_value();
 
   return 0;
 }
