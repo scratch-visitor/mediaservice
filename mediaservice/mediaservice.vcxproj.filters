@@ -22,10 +22,46 @@
     <Filter Include="sv\test">
       <UniqueIdentifier>{a0cc66d0-1d4e-4aff-b5b0-565fde7ea7d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sv\base\impl">
+      <UniqueIdentifier>{2fe95d15-1702-4459-9632-37d08b38befb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sv\demuxer">
+      <UniqueIdentifier>{1f57795e-a070-43be-ac51-4e856838bd58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sv\fileio">
+      <UniqueIdentifier>{0d03b0e1-a0d9-4a73-bc53-698f1c34185f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sv\decoder">
+      <UniqueIdentifier>{b11a12e4-16ff-478b-ae3d-7505d94cb37e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sv\base\impl\processor_impl.cpp">
+      <Filter>sv\base\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="sv\base\processor.cpp">
+      <Filter>sv\base</Filter>
+    </ClCompile>
+    <ClCompile Include="sv\demuxer\demuxer.cpp">
+      <Filter>sv\demuxer</Filter>
+    </ClCompile>
+    <ClCompile Include="sv\demuxer\rtsp.cpp">
+      <Filter>sv\demuxer</Filter>
+    </ClCompile>
+    <ClCompile Include="sv\fileio\fileio.cpp">
+      <Filter>sv\fileio</Filter>
+    </ClCompile>
+    <ClCompile Include="sv\fileio\file.cpp">
+      <Filter>sv\fileio</Filter>
+    </ClCompile>
+    <ClCompile Include="sv\decoder\decoder.cpp">
+      <Filter>sv\decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="sv\decoder\h264.cpp">
+      <Filter>sv\decoder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +76,27 @@
     </ClInclude>
     <ClInclude Include="sv\test\return_value_test.hpp">
       <Filter>sv\test</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\base\processor.hpp">
+      <Filter>sv\base</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\base\data.hpp">
+      <Filter>sv\base</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\base\impl\processor_impl.hpp">
+      <Filter>sv\base\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\demuxer\demuxer.hpp">
+      <Filter>sv\demuxer</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\sv.hpp">
+      <Filter>sv</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\fileio\fileio.hpp">
+      <Filter>sv\fileio</Filter>
+    </ClInclude>
+    <ClInclude Include="sv\decoder\decoder.hpp">
+      <Filter>sv\decoder</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

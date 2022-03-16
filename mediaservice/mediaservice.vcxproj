@@ -144,6 +144,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sv\base\impl\processor_impl.cpp" />
+    <ClCompile Include="sv\base\processor.cpp" />
+    <ClCompile Include="sv\decoder\decoder.cpp" />
+    <ClCompile Include="sv\decoder\h264.cpp" />
+    <ClCompile Include="sv\demuxer\demuxer.cpp" />
+    <ClCompile Include="sv\demuxer\rtsp.cpp" />
+    <ClCompile Include="sv\fileio\file.cpp" />
+    <ClCompile Include="sv\fileio\fileio.cpp" />
+    <ClInclude Include="sv\base\data.hpp" />
+    <ClInclude Include="sv\base\impl\processor_impl.hpp" />
+    <ClInclude Include="sv\base\processor.hpp" />
+    <ClInclude Include="sv\decoder\decoder.hpp" />
+    <ClInclude Include="sv\demuxer\demuxer.hpp" />
+    <ClInclude Include="sv\fileio\fileio.hpp" />
+    <ClInclude Include="sv\sv.hpp" />
     <ClInclude Include="sv\test\return_value_test.hpp" />
   </ItemGroup>
   <ItemGroup>
